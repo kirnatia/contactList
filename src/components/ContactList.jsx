@@ -4,7 +4,7 @@ import ContactRow from './ContactRow';
 
 const dummyContacts = [];
 
-export default function ContactList() {
+export default function ContactList({ setSelectedContactId, setSelectedContact }) {
   const [contacts, setContacts] = useState(dummyContacts);
 
   useEffect(() => {
@@ -37,21 +37,20 @@ export default function ContactList() {
           <td>Phone</td>
         </tr>
         {contacts.map((contact) => (
-          <ContactRow key={contact.id} contact={contact} />
+          <ContactRow
+            key={contact.id}
+            contact={contact}
+            setSelectedContactId={setSelectedContactId}
+            setSelectedContact={setSelectedContact}
+          />
         ))}
       </tbody>
     </table>
   );
 }
 
-// Add prop types validation for the 'contacts' prop
 ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      
-      name: PropTypes.string.isRequired,
-      email: PropTypes.string.isRequired,
-      phone: PropTypes.string.isRequired,
-    })
-  ).isRequired,
+  setSelectedContactId: PropTypes.func.isRequired,
+  setSelectedContact: PropTypes.func.isRequired,
 };
+
