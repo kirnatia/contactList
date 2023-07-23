@@ -10,7 +10,7 @@ export default function ContactList({ setSelectedContactId, setSelectedContact }
   useEffect(() => {
     async function fetchContacts() {
       try {
-        const response = await fetch('https://jsonplace-univclone.herokuapp.com/users');
+        const response = await fetch('https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users');
         if (!response.ok) {
           throw new Error('Failed to fetch contacts');
         }
