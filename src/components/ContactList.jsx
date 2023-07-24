@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import ContactRow from './ContactRow';
+import './ContactList.css';
 
-const dummyContacts = [];
+
 
 export default function ContactList({ setSelectedContactId, setSelectedContact }) {
-  const [contacts, setContacts] = useState(dummyContacts);
+  const [contacts, setContacts] = useState([]);
 
   useEffect(() => {
     async function fetchContacts() {
@@ -41,7 +42,7 @@ export default function ContactList({ setSelectedContactId, setSelectedContact }
             key={contact.id}
             contact={contact}
             setSelectedContactId={setSelectedContactId}
-            setSelectedContact={setSelectedContact}
+            setSelectedContact={setSelectedContact} 
           />
         ))}
       </tbody>
@@ -53,4 +54,3 @@ ContactList.propTypes = {
   setSelectedContactId: PropTypes.func.isRequired,
   setSelectedContact: PropTypes.func.isRequired,
 };
-

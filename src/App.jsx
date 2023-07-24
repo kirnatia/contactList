@@ -1,5 +1,5 @@
-import "./App.css";
 import { useState } from "react";
+import "./App.css";
 import ContactList from "./components/ContactList";
 import SelectedContact from "./components/SelectedContact";
 
@@ -10,9 +10,16 @@ export default function App() {
   return (
     <>
       {selectedContactId ? (
-        <SelectedContact contact={selectedContact} />
+        <SelectedContact
+          selectedContactId={selectedContactId}
+          setSelectedContactId={setSelectedContactId}
+          SelectedContact={selectedContact}
+        />
       ) : (
-        <ContactList setSelectedContactId={setSelectedContactId} setSelectedContact={setSelectedContact} />
+        <ContactList
+          setSelectedContactId={setSelectedContactId}
+          setSelectedContact={setSelectedContact} 
+        />
       )}
     </>
   );

@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-export default function ContactRow({ setSelectedContactId, setSelectedContact, contact }) {
+export default function ContactRow({ contact, setSelectedContactId, setSelectedContact }) {
   return (
     <tr
       onClick={() => {
@@ -15,16 +15,14 @@ export default function ContactRow({ setSelectedContactId, setSelectedContact, c
   );
 }
 
+// Add prop types validation for the 'contact', 'setSelectedContactId', and 'setSelectedContact' props
 ContactRow.propTypes = {
-  setSelectedContactId: PropTypes.func.isRequired,
-  setSelectedContact: PropTypes.func.isRequired,
   contact: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     phone: PropTypes.string.isRequired,
   }).isRequired,
+  setSelectedContactId: PropTypes.func.isRequired,
+  setSelectedContact: PropTypes.func.isRequired,
 };
-
-
-
